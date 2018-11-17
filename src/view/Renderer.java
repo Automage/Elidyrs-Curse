@@ -23,7 +23,9 @@ public class Renderer {
 
         this.map = map;
 
+        //image is the image that is the writable image that is added to canvas
         image = new BufferedImage(map.WIDTH, map.HEIGHT, BufferedImage.TYPE_INT_RGB);
+        //Converts image to a writable pixel array
         pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 
         canvas = new Canvas();
