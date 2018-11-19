@@ -5,6 +5,7 @@ Exploring game architecture and design in Java (graphics done through pure Java'
 
 Current Features:
 - FPS/UPS counter
-- Window rendering black screen
+- Window rendering tiles
+- Sprite sheet usage
 - Base class structure packaged
 - Triple buffer render method

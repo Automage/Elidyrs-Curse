@@ -26,7 +26,6 @@ public class SpriteSheet {
     private void load() {
 
         try {
-            //BufferedImage image = ImageIO.read(new ImageReader(new File(path)));
             BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
             int w = image.getWidth();
             int h = image.getHeight();
