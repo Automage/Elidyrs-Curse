@@ -7,9 +7,9 @@ import java.io.IOException;
 
 public class SpriteSheet {
 
-    private final int SIZE;
+    public final int SIZE;
     private String path;
-    private int[] pixels;
+    public int[] pixels;
 
     public SpriteSheet(String path, int size) {
         this.path = path;
