@@ -1,6 +1,9 @@
 package models;
 
 import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.FileImageInputStream;
+import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +14,7 @@ public class SpriteSheet {
     private String path;
     public int[] pixels;
 
-    public static SpriteSheet generalSheet = new SpriteSheet("ddd", 256); //A general sheet for all tiles for now
+    public static SpriteSheet generalSheet = new SpriteSheet("/textures/generalSheet.png", 256); //A general sheet for all tiles for now
 
     public SpriteSheet(String path, int size) {
         this.path = path;
@@ -23,7 +26,8 @@ public class SpriteSheet {
     private void load() {
 
         try {
-            BufferedImage image = ImageIO.read(new File(path));
+            //BufferedImage image = ImageIO.read(new ImageReader(new File(path)));
+            BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
             int w = image.getWidth();
             int h = image.getHeight();
             //Translates buffered image to pixel array

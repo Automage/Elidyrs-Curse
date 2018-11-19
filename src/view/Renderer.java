@@ -17,7 +17,7 @@ public class Renderer {
     private Canvas canvas;
     private Graphics g;
     private BufferedImage image;
-    private int[] pixels;
+    private int[] pixels; //Screen pixels
 
     public Renderer(Map map) {
 
@@ -26,7 +26,7 @@ public class Renderer {
         //image is the image that is the writable image that is added to canvas
         image = new BufferedImage(map.WIDTH, map.HEIGHT, BufferedImage.TYPE_INT_RGB);
         //Converts image to a writable pixel array
-        pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
+        pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
         canvas = new Canvas();
         canvas.setSize(SCALE * map.WIDTH, SCALE * map.HEIGHT);
@@ -51,7 +51,7 @@ public class Renderer {
         }
 
         //RENDERING
-//        renderBackground();
+        renderBackground();
 //        renderPlayer();
 //        renderEntities();
 
@@ -61,7 +61,7 @@ public class Renderer {
         //Drawing to screen
         g.setColor(Color.black);
         g.fillRect(0, 0, canvas.getWidth(), canvas.getHeight()); //Clear screen
-        g.drawImage(image, 0,0,canvas.getWidth(),canvas.getHeight(), null); //Stretches map to scaled screen
+        g.drawImage(image, 0, 0, canvas.getWidth(), canvas.getHeight(), null); //Stretches map to scaled screen
 
         //Releases system resources for next call
         g.dispose();
@@ -77,6 +77,26 @@ public class Renderer {
     }
 
     private void renderBackground() {
+        //Calls map's tile list, renders in order
+        int tileSize;
+        int x = 0, y = 0;
+        //Iterate through each tile
+        for (int t = 0; t < map.tiles.length; t++) {
+            tileSize = map.tiles[t].tileSprite.SIZE;
+            for (int j = 0; j < tileSize; j++) {
+                for (int i = 0; i < tileSize; i++) {
+                    pixels[(i + x) + (j + y) * map.WIDTH] = map.tiles[t].tileSprite.pixels[i + j * tileSize];
+                }
+            }
+            if (x + tileSize > map.WIDTH) {
+                x = 0;
+                y += tileSize;
+            } else {
+                x += tileSize;
+            }
+
+        }
+
     }
 
 }

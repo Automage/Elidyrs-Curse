@@ -3,7 +3,7 @@ package models;
 public class Sprite {
 
     private SpriteSheet spriteSheet;
-    private final int SIZE; //Allows for larger-than-tile sprites
+    public final int SIZE; //Allows for larger-than-tile sprites
     private int x, y; // x, y coordinates of sprite on sprite sheet
     public int[] pixels;
 
@@ -16,13 +16,14 @@ public class Sprite {
         this.x = col * SIZE; //x coordinate of top-left corner of sprite
         this.y = row * SIZE; //y coordinate of top-left corner of sprite
         pixels = new int[SIZE * SIZE];
+        load();
     }
 
     public void load() {
 
         //i = x iterator, j = y iterator
-        for (int j = 0; j < SIZE; y++) {
-            for (int i = 0; i < SIZE; x++) {
+        for (int j = 0; j < SIZE; j++) {
+            for (int i = 0; i < SIZE; i++) {
                 pixels[i + j * SIZE] = spriteSheet.pixels[(i + x) + (j + y) * spriteSheet.SIZE];
             }
         }

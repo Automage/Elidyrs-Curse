@@ -10,6 +10,9 @@ public abstract class Tile {
     //public int[][] pixels;
     public Sprite tileSprite;
 
+    //All tiles
+
+    public static Tile grass = new GrassTile();
 
 //    public Tile(int size, boolean isObstacle, int numSprites, Sprite... sprites) {
 //        this.SIZE = size;
