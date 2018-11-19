@@ -7,6 +7,9 @@ public class Sprite {
     private int x, y; // x, y coordinates of sprite on sprite sheet
     public int[] pixels;
 
+    //All Sprites
+    public static Sprite grass = new Sprite(SpriteSheet.generalSheet, 16, 0, 0);
+
     public Sprite(SpriteSheet spriteSheet, int SIZE, int col, int row) {
         this.spriteSheet = spriteSheet;
         this.SIZE = SIZE;

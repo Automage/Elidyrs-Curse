@@ -11,6 +11,8 @@ public class SpriteSheet {
     private String path;
     public int[] pixels;
 
+    public static SpriteSheet generalSheet = new SpriteSheet("ddd", 256); //A general sheet for all tiles for now
+
     public SpriteSheet(String path, int size) {
         this.path = path;
         this.SIZE = size;
