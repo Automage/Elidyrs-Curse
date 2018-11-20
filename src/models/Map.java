@@ -5,10 +5,9 @@ import models.tiles.Tile;
 
 public class Map {
 
-    public final int WIDTH = 300;
-    public final int HEIGHT = 300 / 4 * 3; // 225
-    public Tile[] tiles = {Tile.dungeonTile, Tile.dungeonTile};
+    public final int WIDTH = 320;
+    public final int HEIGHT = 320 / 4 * 3; // 240
+    public Tile[] tiles = {Tile.grass, Tile.dungeonTile};
     public Level level;
-
 
 }
