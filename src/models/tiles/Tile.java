@@ -9,6 +9,7 @@ public abstract class Tile {
     //protected Sprite[] tileSprites; //Adds potential for animated tile sprites
     //public int[][] pixels;
     public Sprite tileSprite;
+    public String name;
 
     //All tiles
 
@@ -25,13 +26,31 @@ public abstract class Tile {
 //    }
 
 
-    public Tile(boolean isObstacle, Sprite tileSprite) {
+    public Tile(String name, boolean isObstacle, Sprite tileSprite) {
+        this.name = name;
         this.isObstacle = isObstacle;
         this.tileSprite = tileSprite;
     }
 
     public boolean isObstacle() {
         return isObstacle;
+    }
+
+    /*
+    0xa,r,g,b
+    ----------
+    0xFF000000 - (0,0,0) - grass
+    0xFF0000FF - (0,0,255) - dungeonTile
+     */
+    public static Tile colorToTile(int color) {
+        switch (color) {
+            case 0xFF0000FF:
+                return Tile.dungeonTile;
+            case 0xFF000000:
+                return Tile.grass;
+        }
+
+        return null;
     }
 
 }

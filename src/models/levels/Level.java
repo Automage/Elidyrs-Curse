@@ -3,19 +3,34 @@ package models.levels;
 import models.tiles.Tile;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public abstract class Level {
+public class Level {
 
-    protected Tile[] tiles;
+    public Tile[] tiles;
     protected int[] pixels;
+    public final int levelID;
+
+    //All Levels
+    public static Level level0 = new Level0();
+
+
+    public Level(String path, int widthTiles, int heightTiles, int id) { //width and height of level in tiles
+        levelID = id;
+        tiles = new Tile[widthTiles * heightTiles];
+        pixels = new int[widthTiles * heightTiles];
+        loadTiles(path);
+    }
 
     protected void loadTiles(String path) {
 
         loadPixels(path);
-        //Determine tiles based on pixels
 
+        for (int i = 0; i < pixels.length; i++) {
+            tiles[i] = Tile.colorToTile(pixels[i]);
+        }
 
     }
 
@@ -25,7 +40,7 @@ public abstract class Level {
             int w = image.getWidth();
             int h = image.getHeight();
             //Translates buffered image to pixel array
-            image.getRGB(0,0, w, h, pixels, 0, w);
+            image.getRGB(0, 0, w, h, pixels, 0, w);
         } catch (IOException e) {
             e.printStackTrace();
         }

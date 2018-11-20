@@ -88,7 +88,7 @@ public class Renderer {
                     pixels[(i + x) + (j + y) * map.WIDTH] = map.tiles[t].tileSprite.pixels[i + j * tileSize];
                 }
             }
-            if (x + tileSize > map.WIDTH) {
+            if (x + tileSize >= map.WIDTH) {
                 x = 0;
                 y += tileSize;
             } else {

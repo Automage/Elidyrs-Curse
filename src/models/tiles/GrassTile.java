@@ -5,7 +5,7 @@ import models.Sprite;
 public class GrassTile extends Tile {
 
     public GrassTile() {
-        super(false, Sprite.grass);
+        super("grass", false, Sprite.grass);
     }
 
 }
