@@ -15,6 +15,7 @@ public abstract class Tile {
 
     public static Tile grass = new GrassTile();
     public static Tile dungeonTile = new DungeonTile();
+    public static Tile dungeonWallTile = new DungeonWallTile();
 
 //    public Tile(int size, boolean isObstacle, int numSprites, Sprite... sprites) {
 //        this.SIZE = size;
@@ -39,7 +40,7 @@ public abstract class Tile {
     /*
     0xa,r,g,b
     ----------
-    0xFF000000 - (0,0,0) - grass
+    0xFF000000 - (0,0,0) - dungeonWallTile
     0xFF0000FF - (0,0,255) - dungeonTile
      */
     public static Tile colorToTile(int color) {
@@ -47,7 +48,7 @@ public abstract class Tile {
             case 0xFF0000FF:
                 return Tile.dungeonTile;
             case 0xFF000000:
-                return Tile.grass;
+                return Tile.dungeonWallTile;
         }
 
         return null;
