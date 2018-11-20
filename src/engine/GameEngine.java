@@ -1,5 +1,6 @@
 package engine;
 
+import models.levels.LevelNotFoundException;
 import view.Renderer;
 import models.Map;
 
@@ -9,7 +10,13 @@ public class GameEngine {
     private Map map;
 
     public GameEngine() {
-        map = new Map();
+
+        try {
+            map = new Map(0);
+        } catch (LevelNotFoundException e) {
+            e.printStackTrace();
+        }
+
         renderer = new Renderer(map);
 
     }
