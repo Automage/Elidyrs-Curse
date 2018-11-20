@@ -13,6 +13,7 @@ public abstract class Tile {
     //All tiles
 
     public static Tile grass = new GrassTile();
+    public static Tile dungeonTile = new DungeonTile();
 
 //    public Tile(int size, boolean isObstacle, int numSprites, Sprite... sprites) {
 //        this.SIZE = size;

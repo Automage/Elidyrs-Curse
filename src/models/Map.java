@@ -7,7 +7,7 @@ public class Map {
 
     public final int WIDTH = 300;
     public final int HEIGHT = 300 / 4 * 3; // 225
-    public Tile[] tiles = {Tile.grass, Tile.grass};
+    public Tile[] tiles = {Tile.dungeonTile, Tile.dungeonTile};
     public Level level;
 
 

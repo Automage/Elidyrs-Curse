@@ -9,6 +9,7 @@ public class Sprite {
 
     //All Sprites
     public static Sprite grass = new Sprite(SpriteSheet.generalSheet, 16, 0, 0);
+    public static Sprite dungeonTile = new Sprite(SpriteSheet.generalSheet, 16, 1,0);
 
     public Sprite(SpriteSheet spriteSheet, int SIZE, int col, int row) {
         this.spriteSheet = spriteSheet;
