@@ -16,4 +16,4 @@ Level0:
 
 Loaded from level0.png:
 
-![](https://github.com/Automage/Elidyrs-Curse/blob/LevelLoading/res/levels/level0.png)
+![](https://github.com/Automage/Elidyrs-Curse/blob/master/res/levels/level0.png)
