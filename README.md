@@ -9,6 +9,7 @@ Current Features:
 - Window rendering tiles
 - Sprite sheet usage
 - Level loading using pixelized versions of the level map
+- Key input
 
 Level0:
 
