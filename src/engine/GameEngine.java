@@ -29,4 +29,8 @@ public class GameEngine {
         renderer.render();
     }
 
+    public void pushFPS(int fps) {
+        renderer.setFPS(fps);
+    }
+
 }

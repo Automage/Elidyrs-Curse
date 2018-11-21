@@ -43,6 +43,7 @@ public class Game implements Runnable{
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
                 System.out.println("UPS: " + updates + ", FPS: " + frames);
+                engine.pushFPS(frames);
                 updates = frames = 0;
             }
 

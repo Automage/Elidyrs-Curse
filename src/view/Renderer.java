@@ -19,6 +19,8 @@ public class Renderer {
     private BufferedImage image;
     private int[] pixels; //Screen pixels
 
+    private int fps;
+
     public Renderer(Map map) {
 
         this.map = map;
@@ -39,6 +41,10 @@ public class Renderer {
 
         window.setVisible(true);
 
+    }
+
+    public void setFPS(int fps) {
+        this.fps = fps;
     }
 
     public void render() {
@@ -62,6 +68,9 @@ public class Renderer {
         g.setColor(Color.black);
         g.fillRect(0, 0, canvas.getWidth(), canvas.getHeight()); //Clear screen
         g.drawImage(image, 0, 0, canvas.getWidth(), canvas.getHeight(), null); //Stretches map to scaled screen
+
+        //Update fps on title
+        window.setTitle("Elidyr's Curse | "+fps+" fps");
 
         //Releases system resources for next call
         g.dispose();
