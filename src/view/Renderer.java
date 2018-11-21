@@ -4,6 +4,7 @@ import models.Map;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -21,7 +22,7 @@ public class Renderer {
 
     private int fps;
 
-    public Renderer(Map map) {
+    public Renderer(Map map, KeyAdapter keyboard) {
 
         this.map = map;
 
@@ -32,6 +33,7 @@ public class Renderer {
 
         canvas = new Canvas();
         canvas.setSize(SCALE * map.WIDTH, SCALE * map.HEIGHT);
+        canvas.addKeyListener(keyboard);
 
         window = new JFrame("Elidyr's Curse");
         window.setResizable(false);
@@ -40,6 +42,7 @@ public class Renderer {
         window.pack();
 
         window.setVisible(true);
+        canvas.requestFocus();
 
     }
 
