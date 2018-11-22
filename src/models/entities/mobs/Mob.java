@@ -8,9 +8,9 @@ public abstract class Mob extends Entity {
     //sprites[]:(0,1,2,3) should be reserved for (forward, back, right, left)
 
     protected int dir; //dir = direction: (1,2,3,4) --> (forward, back, right, left)
-    protected double speed;
+    protected int speed;
 
-    public Mob(int x, int y, double speed, Sprite... sprites) {
+    public Mob(int x, int y, int speed, Sprite... sprites) {
         this.x = x;
         this.y = y;
         this.speed = speed;
@@ -63,4 +63,7 @@ public abstract class Mob extends Entity {
 
     }
 
+    public int getSpeed() {
+        return speed;
+    }
 }
