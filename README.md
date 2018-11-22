@@ -18,3 +18,8 @@ Level0:
 Loaded from level0.png:
 
 ![](https://github.com/Automage/Elidyrs-Curse/blob/master/res/levels/level0.png)
+
+
+TODO: 
+
+- Create getLevel(int ID) method in Level Class (instead of switch in Map constructor)
