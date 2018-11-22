@@ -1,17 +1,20 @@
 package models.levels;
 
+import models.entities.mobs.Mob;
 import models.tiles.Tile;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Level {
 
-    public Tile[] tiles;
     protected int[] pixels;
     public final int levelID;
+
+    //In-game
+    public Tile[] tiles;
+    public Mob[] mobs;
 
     //All Levels
     public static Level level0 = new Level0();
