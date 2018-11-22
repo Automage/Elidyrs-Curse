@@ -1,35 +1,18 @@
 package models;
 
-public class Player {
+import models.entities.mobs.Mob;
 
-    private int x, y;
+public class Player extends Mob {
+
     private final String name;
-    private Sprite[] playerSprites; //Sprites for left, right, walking, running, attacking, etc.
 
     //Future framework
     private double experience;
     private int level; //level 3, 50, etc.
 
-    public Player(int x, int y, String name, Sprite... playerSprites) {
-        this.x = 0;
-        this.y = 0;
+    public Player(String name, int x, int y, Sprite... sprites) {
+        super(x, y, 1,sprites);
         this.name = name;
-        this.playerSprites = playerSprites;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
 }

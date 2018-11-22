@@ -62,6 +62,7 @@ public class Renderer {
         //RENDERING
         renderBackground();
 //        renderPlayer();
+//        renderMobs();
 //        renderEntities();
 
         //Get graphics from bufferStrategy
@@ -83,6 +84,9 @@ public class Renderer {
 
 
     private void renderEntities() {
+    }
+
+    private void renderMobs() {
     }
 
     private void renderPlayer() {
