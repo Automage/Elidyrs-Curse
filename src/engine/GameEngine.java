@@ -50,7 +50,6 @@ public class GameEngine {
             player.move(player.getSpeed(), 0);
         }
         player.update();
-        System.out.println("x: " + player.getX() + " y: " + player.getY());
     }
 
     public void render() {

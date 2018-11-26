@@ -97,8 +97,11 @@ public class Renderer {
         for (int y = 0; y < playerSpriteSize; y++) {
             for (int x = 0; x < playerSpriteSize; x++) {
 
-                pixels[(x + map.player.getX()) + (y + map.player.getY()) * map.WIDTH]
-                        = playerSpritePixels[x + y * playerSpriteSize];
+                int currentPixel = playerSpritePixels[x + y * playerSpriteSize];
+
+                if (currentPixel != 0xFFFF00FF) { //PINK (0xFFFF00FF) should not be rendered
+                    pixels[(x + map.player.getX()) + (y + map.player.getY()) * map.WIDTH] = currentPixel;
+                }
 
             }
         }
