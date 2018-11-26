@@ -4,7 +4,7 @@ import models.Sprite;
 
 public abstract class Entity {
 
-    protected int x, y;
+    protected int x, y; //TOP-LEFT of sprite
     protected Sprite[] sprites; //Sprites for left, right, walking, running, attacking, etc.
     protected Sprite currentSprite;
     protected boolean isPassable; //Determines whether other Entities can pass through and whether it can pass other Entities
