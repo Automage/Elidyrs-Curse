@@ -12,6 +12,11 @@ public class Sprite {
     public static Sprite dungeonTile = new Sprite(SpriteSheet.generalSheet, 16, 1,0);
     public static Sprite dungeonWallTile = new Sprite(SpriteSheet.generalSheet, 16, 2,0);
 
+    public static Sprite knightFront = new Sprite(SpriteSheet.generalSheet, 16, 0, 15);
+    public static Sprite knightLeft = new Sprite(SpriteSheet.generalSheet, 16, 1, 15);
+    public static Sprite knightBack = new Sprite(SpriteSheet.generalSheet, 16, 2, 15);
+    public static Sprite knightRight = new Sprite(SpriteSheet.generalSheet, 16, 3, 15);
+
 
     public Sprite(SpriteSheet spriteSheet, int SIZE, int col, int row) {
         this.spriteSheet = spriteSheet;
