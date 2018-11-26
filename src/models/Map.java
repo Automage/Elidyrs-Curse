@@ -27,7 +27,7 @@ public class Map {
                 throw new LevelNotFoundException();
         }
 
-        player = new Player("Player 1", 200, 200, Sprite.grass, Sprite.grass, Sprite.grass, Sprite.grass);
+        player = new Player("Player 1", 200, 200, Sprite.grass, Sprite.dungeonTile, Sprite.dungeonWallTile, Sprite.grass);
 
         loadLevel();
 
