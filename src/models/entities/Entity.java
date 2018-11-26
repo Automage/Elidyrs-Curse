@@ -25,6 +25,10 @@ public abstract class Entity {
         this.y = y;
     }
 
+    public Sprite getSprite() {
+        return currentSprite;
+    }
+
     public abstract void update();
 
 

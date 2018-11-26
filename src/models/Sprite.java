@@ -3,7 +3,7 @@ package models;
 public class Sprite {
 
     private SpriteSheet spriteSheet;
-    public final int SIZE; //Allows for larger-than-tile sprites
+    public final int SIZE; //16x16 --> SIZE: 16
     private int x, y; // x, y coordinates of sprite on sprite sheet
     public int[] pixels;
 

@@ -61,7 +61,7 @@ public class Renderer {
 
         //RENDERING
         renderBackground();
-//        renderPlayer();
+        renderPlayer();
 //        renderMobs();
 //        renderEntities();
 
@@ -74,7 +74,7 @@ public class Renderer {
         g.drawImage(image, 0, 0, canvas.getWidth(), canvas.getHeight(), null); //Stretches map to scaled screen
 
         //Update fps on title
-        window.setTitle("Elidyr's Curse | "+fps+" fps");
+        window.setTitle("Elidyr's Curse | " + fps + " fps");
 
         //Releases system resources for next call
         g.dispose();
@@ -90,6 +90,19 @@ public class Renderer {
     }
 
     private void renderPlayer() {
+
+        int playerSpriteSize = map.player.getSprite().SIZE;
+        int[] playerSpritePixels = map.player.getSprite().pixels;
+
+        for (int y = 0; y < playerSpriteSize; y++) {
+            for (int x = 0; x < playerSpriteSize; x++) {
+
+                pixels[(x + map.player.getX()) + (y + map.player.getY()) * map.WIDTH]
+                        = playerSpritePixels[x + y * playerSpriteSize];
+
+            }
+        }
+
     }
 
     private void renderBackground() {

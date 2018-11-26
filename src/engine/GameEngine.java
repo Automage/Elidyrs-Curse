@@ -29,20 +29,20 @@ public class GameEngine {
 
     public void update() {
         //Player updates
+        //UP
         if (keyboard.keyIsDown[0]) {
-            System.out.println("UP");
             player.move(0, player.getSpeed());
         }
+        //DOWN
         if (keyboard.keyIsDown[1]) {
-            System.out.println("DOWN");
             player.move(0, -player.getSpeed());
         }
+        //LEFT
         if (keyboard.keyIsDown[2]) {
-            System.out.println("LEFT");
             player.move(player.getSpeed(), 0);
         }
+        //RIGHT
         if (keyboard.keyIsDown[3]) {
-            System.out.println("RIGHT");
             player.move(-player.getSpeed(), 0);
         }
         player.update();
