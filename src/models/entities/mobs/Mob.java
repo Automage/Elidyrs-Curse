@@ -27,8 +27,8 @@ public abstract class Mob extends Entity {
      * @param yMod delta y
      */
     public void move(int xMod, int yMod) {
-        if (yMod > 0) dir = 2;
-        if (yMod < 0) dir = 1;
+        if (yMod > 0) dir = 1;
+        if (yMod < 0) dir = 2;
         if (xMod > 0) dir = 3;
         if (xMod < 0) dir = 4;
         this.x += xMod;
