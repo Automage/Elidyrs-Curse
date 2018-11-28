@@ -1,5 +1,6 @@
 package models.entities.mobs;
 
+import models.Map;
 import models.Sprite;
 import models.entities.Entity;
 
@@ -10,9 +11,8 @@ public abstract class Mob extends Entity {
     protected int dir; //dir = direction: (1,2,3,4) --> (forward, back, right, left)
     protected int speed;
 
-    public Mob(int x, int y, int speed, Sprite... sprites) {
-        this.x = x;
-        this.y = y;
+    public Mob(Map map, int x, int y, int speed, Sprite... sprites) {
+        super(map, x, y);
         this.speed = speed;
         this.sprites = sprites;
         isPassable = false;
@@ -31,10 +31,18 @@ public abstract class Mob extends Entity {
         if (yMod < 0) dir = 2;
         if (xMod > 0) dir = 3;
         if (xMod < 0) dir = 4;
-        this.x += xMod;
-        this.y += yMod;
+
+        if (!collision(xMod, yMod)) {
+            this.x += xMod;
+            this.y += yMod;
+        }
     }
 
+    protected boolean collision(int xMod, int yMod) {
+
+        return false;
+
+    }
 
     /**
      * Updates mob characteristics

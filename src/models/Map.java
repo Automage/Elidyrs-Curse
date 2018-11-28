@@ -27,9 +27,16 @@ public class Map {
                 throw new LevelNotFoundException();
         }
 
-        player = new Player("Player 1", 200, 200, Sprite.knightFront, Sprite.knightBack, Sprite.knightRight, Sprite.knightLeft);
+        player = new Player("Player 1", this,160, 120, Sprite.knightFront, Sprite.knightBack, Sprite.knightRight, Sprite.knightLeft);
 
         loadLevel();
+
+    }
+
+    public Tile getTile(int x, int y) {
+
+        //return tiles[x + y * WIDTH];
+        return null;
 
     }
 
