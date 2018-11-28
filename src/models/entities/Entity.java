@@ -11,10 +11,14 @@ public abstract class Entity {
     protected boolean isPassable; //Determines whether other Entities can pass through and whether it can pass other Entities
     protected Map map;
 
-    public Entity(Map map, int x, int y) {
-        this.map = map;
+    public Entity(int x, int y, Sprite... sprites) {
         this.x = x;
         this.y = y;
+        this.sprites = sprites;
+    }
+
+    public void mapInit(Map map) {
+        this.map = map;
     }
 
     public int getX() {

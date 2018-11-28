@@ -11,10 +11,9 @@ public abstract class Mob extends Entity {
     protected int dir; //dir = direction: (1,2,3,4) --> (forward, back, right, left)
     protected int speed;
 
-    public Mob(Map map, int x, int y, int speed, Sprite... sprites) {
-        super(map, x, y);
-        this.speed = speed;
-        this.sprites = sprites;
+    public Mob(int x, int y, Sprite... sprites) {
+        super(x, y, sprites);
+        this.speed = 1;
         isPassable = false;
         dir = 1; //Faces forward
         currentSprite = sprites[1]; //Forward sprite

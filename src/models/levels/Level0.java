@@ -11,7 +11,7 @@ public class Level0 extends Level{
     public Level0() {
         super("/levels/level0.png", 20, 15, 0); //equates to 320x240 resolution (16px tiles)
         //Intialize mobs ...
-        this.mobs = new Mob[] {new EnemyTest(0,0, 0, Sprite.grass, Sprite.grass, Sprite.grass, Sprite.grass)};
+        this.mobs = new Mob[] {new EnemyTest(0,0)};
     }
 
 }

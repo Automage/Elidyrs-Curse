@@ -27,7 +27,8 @@ public class Map {
                 throw new LevelNotFoundException();
         }
 
-        player = new Player("Player 1", this,160, 120, Sprite.knightFront, Sprite.knightBack, Sprite.knightRight, Sprite.knightLeft);
+        player = new Player("Player 1", 160, 120);
+        player.mapInit(this);
 
         loadLevel();
 
@@ -43,6 +44,11 @@ public class Map {
     private void loadLevel() {
         this.tiles = level.tiles;
         this.mobs = level.mobs;
+
+        for (int i = 0; i < mobs.length; i++) {
+            mobs[i].mapInit(this);
+        }
+
     }
 
 }
