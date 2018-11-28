@@ -39,6 +39,7 @@ public abstract class Mob extends Entity {
 
     protected boolean collision(int xMod, int yMod) {
 
+        //Check if map.getTile(this.x + xMod, ...) tile is an obstacle
         return false;
 
     }
