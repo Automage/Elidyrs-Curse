@@ -1,5 +1,6 @@
 package models;
 
+import models.entities.mobs.Mob;
 import models.levels.Level;
 import models.levels.LevelNotFoundException;
 import models.tiles.Tile;
@@ -8,8 +9,12 @@ public class Map {
 
     public final int WIDTH = 320;
     public final int HEIGHT = 320 / 4 * 3; // 240
+
     public Tile[] tiles;
     public Level level;
+
+    public Player player;
+    public Mob[] mobs;
 
     public Map(int levelID) throws LevelNotFoundException {
 
@@ -22,8 +27,15 @@ public class Map {
                 throw new LevelNotFoundException();
         }
 
-        this.tiles = level.tiles;
+        player = new Player("Player 1", 200, 200, Sprite.knightFront, Sprite.knightBack, Sprite.knightRight, Sprite.knightLeft);
 
+        loadLevel();
+
+    }
+
+    private void loadLevel() {
+        this.tiles = level.tiles;
+        this.mobs = level.mobs;
     }
 
 }
