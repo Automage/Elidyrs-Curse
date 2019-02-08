@@ -41,21 +41,56 @@ public abstract class Mob extends Entity {
 
         Tile tempTile;
 
-        if (dir == 1) { //Forward movement
-            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
-                    ((this.y + yMod) / Tile.TILE_SIZE) + 1);
-        } else if (dir == 3) { //Right movement
-            tempTile = map.getTile(((this.x + xMod) / Tile.TILE_SIZE) + 1,
-                    (this.y + yMod) / Tile.TILE_SIZE);
-        } else { // Left and Back movement
-            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
-                    (this.y + yMod) / Tile.TILE_SIZE);
+//        if (dir == 1) { //Forward movement
+//            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
+//                    ((this.y + yMod) / Tile.TILE_SIZE) + 1);
+//        } else if (dir == 3) { //Right movement
+//            tempTile = map.getTile(((this.x + xMod) / Tile.TILE_SIZE) + 1,
+//                    (this.y + yMod) / Tile.TILE_SIZE);
+//        } else { // Left and Back movement
+//            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
+//                    (this.y + yMod) / Tile.TILE_SIZE);
+//        }
+
+        /*
+         * 0---1
+         * |   |
+         * 3---2
+         */
+
+        int[][] spriteVertices = {
+                {this.x, this.y},
+                {this.x + currentSprite.SIZE, this.y},
+                {this.x + currentSprite.SIZE, this.y + currentSprite.SIZE},
+                {this.x, this.y + currentSprite.SIZE}
+        };
+
+        int[][] selectVertices = null;
+
+        switch (dir) {
+            case 1:
+                selectVertices = new int[][]{spriteVertices[2], spriteVertices[3]};
+                break;
+            case 2:
+                selectVertices = new int[][]{spriteVertices[0], spriteVertices[1]};
+                break;
+            case 3:
+                selectVertices = new int[][]{spriteVertices[1], spriteVertices[2]};
+                break;
+            case 4:
+                selectVertices = new int[][]{spriteVertices[0], spriteVertices[3]};
+                break;
         }
 
-        System.out.println("Dir: " + dir);
+        for (int[] vertex : selectVertices) {
 
-        if (tempTile.isObstacle()) {
-            return true;
+            tempTile = map.getTile((vertex[0] + xMod) / Tile.TILE_SIZE,
+                    (vertex[1] + yMod) / Tile.TILE_SIZE);
+
+            if (tempTile.isObstacle()) {
+                return true;
+            }
+
         }
 
         return false;
