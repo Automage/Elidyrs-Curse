@@ -1,8 +1,8 @@
 package models.entities.mobs;
 
-import models.Map;
 import models.Sprite;
 import models.entities.Entity;
+import models.tiles.Tile;
 
 public abstract class Mob extends Entity {
 
@@ -39,7 +39,11 @@ public abstract class Mob extends Entity {
 
     protected boolean collision(int xMod, int yMod) {
 
-        //Check if map.getTile(this.x + xMod, ...) tile is an obstacle
+        Tile tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
+                                    (this.y + yMod) / Tile.TILE_SIZE);
+        if (tempTile.isObstacle()) {
+            return true;
+        }
         return false;
 
     }

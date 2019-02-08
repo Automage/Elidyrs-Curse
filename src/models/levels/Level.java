@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public abstract class Level {
 
-    protected int[] pixels;
+    protected int[] pixels; //pixels in pixel-map
     public final int levelID;
 
     public Tile[] tiles;

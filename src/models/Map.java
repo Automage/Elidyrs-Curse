@@ -34,10 +34,18 @@ public class Map {
 
     }
 
+    /**
+     * Returns the tile corresponding to the x, y tile coordinate
+     * (i.e. not pixel coordinates)
+     *
+     * @param x coordinate
+     * @param y coordinate
+     * @return Tile at (x,y)
+     */
     public Tile getTile(int x, int y) {
 
-        //return tiles[x + y * WIDTH];
-        return null;
+        return tiles[x + y * (WIDTH / Tile.TILE_SIZE)];
+        //return null;
 
     }
 
