@@ -4,6 +4,7 @@ import models.Sprite;
 
 public abstract class Tile {
 
+    public static final int TILE_SIZE = 16;
     protected boolean isObstacle; //Whether or not entities can pass through
     //protected int numSprites; //Adds potential for animated tile sprites
     //protected Sprite[] tileSprites; //Adds potential for animated tile sprites

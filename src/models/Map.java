@@ -27,15 +27,36 @@ public class Map {
                 throw new LevelNotFoundException();
         }
 
-        player = new Player("Player 1", 200, 200, Sprite.knightFront, Sprite.knightBack, Sprite.knightRight, Sprite.knightLeft);
+        player = new Player("Player 1", 160, 120);
+        player.mapInit(this);
 
         loadLevel();
+
+    }
+
+    /**
+     * Returns the tile corresponding to the x, y tile coordinate
+     * (i.e. not pixel coordinates)
+     *
+     * @param x coordinate
+     * @param y coordinate
+     * @return Tile at (x,y)
+     */
+    public Tile getTile(int x, int y) {
+
+        return tiles[x + y * (WIDTH / Tile.TILE_SIZE)];
+        //return null;
 
     }
 
     private void loadLevel() {
         this.tiles = level.tiles;
         this.mobs = level.mobs;
+
+        for (int i = 0; i < mobs.length; i++) {
+            mobs[i].mapInit(this);
+        }
+
     }
 
 }

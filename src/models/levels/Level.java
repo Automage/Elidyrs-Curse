@@ -7,12 +7,11 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Level {
+public abstract class Level {
 
-    protected int[] pixels;
+    protected int[] pixels; //pixels in pixel-map
     public final int levelID;
 
-    //In-game
     public Tile[] tiles;
     public Mob[] mobs;
 
