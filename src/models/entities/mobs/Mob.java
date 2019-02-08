@@ -15,7 +15,7 @@ public abstract class Mob extends Entity {
         super(x, y, sprites);
         this.speed = 1;
         isPassable = false;
-        dir = 1; //Faces forward
+        dir = 1; //Faces forward (down)
         currentSprite = sprites[1]; //Forward sprite
     }
 
@@ -46,7 +46,6 @@ public abstract class Mob extends Entity {
      * @param yMod Change in y direction
      * @return Whether or not player will collide with an obstacle
      */
-
     protected boolean collision(int xMod, int yMod) {
 
         /*
@@ -84,7 +83,7 @@ public abstract class Mob extends Entity {
         for (int[] vertex : selectVertices) {
 
             tempTile = map.getTile((vertex[0] + xMod) / Tile.TILE_SIZE,
-                    (vertex[1] + yMod) / Tile.TILE_SIZE);
+                                    (vertex[1] + yMod) / Tile.TILE_SIZE);
 
             if (tempTile.isObstacle()) {
                 return true;
@@ -105,7 +104,6 @@ public abstract class Mob extends Entity {
      */
     @Override
     public void update() {
-
         switch (dir) {
             case 1: //Down
                 currentSprite = sprites[0];
@@ -120,7 +118,6 @@ public abstract class Mob extends Entity {
                 currentSprite = sprites[3];
                 break;
         }
-
     }
 
     /**
