@@ -6,9 +6,9 @@ import models.tiles.Tile;
 
 public abstract class Mob extends Entity {
 
-    //sprites[]:(0,1,2,3) should be reserved for (forward, back, right, left)
+    //sprites[]:(0,1,2,3) should be reserved for (down, up, right, left)
 
-    protected int dir; //dir = direction: (1,2,3,4) --> (forward, back, right, left)
+    protected int dir; //dir = direction: (1,2,3,4) --> (down, up, right, left)
     protected int speed;
 
     public Mob(int x, int y, Sprite... sprites) {
@@ -39,11 +39,25 @@ public abstract class Mob extends Entity {
 
     protected boolean collision(int xMod, int yMod) {
 
-        Tile tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
-                                    (this.y + yMod) / Tile.TILE_SIZE);
+        Tile tempTile;
+
+        if (dir == 1) { //Forward movement
+            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
+                    ((this.y + yMod) / Tile.TILE_SIZE) + 1);
+        } else if (dir == 3) { //Right movement
+            tempTile = map.getTile(((this.x + xMod) / Tile.TILE_SIZE) + 1,
+                    (this.y + yMod) / Tile.TILE_SIZE);
+        } else { // Left and Back movement
+            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
+                    (this.y + yMod) / Tile.TILE_SIZE);
+        }
+
+        System.out.println("Dir: " + dir);
+
         if (tempTile.isObstacle()) {
             return true;
         }
+
         return false;
 
     }
@@ -59,16 +73,16 @@ public abstract class Mob extends Entity {
     public void update() {
 
         switch (dir) {
-            case 1:
+            case 1: //Down
                 currentSprite = sprites[0];
                 break;
-            case 2:
+            case 2: //Up
                 currentSprite = sprites[1];
                 break;
-            case 3:
+            case 3: //Right
                 currentSprite = sprites[2];
                 break;
-            case 4:
+            case 4: //Left
                 currentSprite = sprites[3];
                 break;
         }
