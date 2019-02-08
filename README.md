@@ -14,7 +14,7 @@ Current Features:
 
 Level0:
 
-![Imgur](https://i.imgur.com/GRGzA5q.gifv)
+![Giphy](https://media.giphy.com/media/B2z1F9C3hmlZ655SeS/giphy.gif)
 
 Loaded from level0.png:
 
@@ -23,4 +23,4 @@ Loaded from level0.png:
 
 TODO: 
 
-- Create getLevel(int ID) method in Level Class (instead of switch in Map constructor)
+- Enemy mobs
