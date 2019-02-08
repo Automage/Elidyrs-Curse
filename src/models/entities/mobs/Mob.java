@@ -37,20 +37,17 @@ public abstract class Mob extends Entity {
         }
     }
 
+    /**
+     * Detects collision by checking if the front 2 vertices of the sprite
+     * in the movement direction will hit an obstacle after adding xMod and
+     * yMod respectively.
+     *
+     * @param xMod Change in x direction
+     * @param yMod Change in y direction
+     * @return Whether or not player will collide with an obstacle
+     */
+
     protected boolean collision(int xMod, int yMod) {
-
-        Tile tempTile;
-
-//        if (dir == 1) { //Forward movement
-//            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
-//                    ((this.y + yMod) / Tile.TILE_SIZE) + 1);
-//        } else if (dir == 3) { //Right movement
-//            tempTile = map.getTile(((this.x + xMod) / Tile.TILE_SIZE) + 1,
-//                    (this.y + yMod) / Tile.TILE_SIZE);
-//        } else { // Left and Back movement
-//            tempTile = map.getTile((this.x + xMod) / Tile.TILE_SIZE,
-//                    (this.y + yMod) / Tile.TILE_SIZE);
-//        }
 
         /*
          * 0---1
@@ -81,6 +78,8 @@ public abstract class Mob extends Entity {
                 selectVertices = new int[][]{spriteVertices[0], spriteVertices[3]};
                 break;
         }
+
+        Tile tempTile;
 
         for (int[] vertex : selectVertices) {
 
@@ -124,6 +123,11 @@ public abstract class Mob extends Entity {
 
     }
 
+    /**
+     * Returns player's speed
+     *
+     * @return player speed
+     */
     public int getSpeed() {
         return speed;
     }
