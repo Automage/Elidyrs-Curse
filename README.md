@@ -10,6 +10,7 @@ Current Features:
 - Sprite sheet usage
 - Level loading using pixelized versions of the level map
 - Movement of player sprite using arrow keys
+- Obstacle detection
 
 Level0:
 
