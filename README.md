@@ -14,7 +14,7 @@ Current Features:
 
 Level0:
 
-![](https://i.imgur.com/nHtQ01S.png)
+![Imgur](https://i.imgur.com/GRGzA5q.gifv)
 
 Loaded from level0.png:
 
