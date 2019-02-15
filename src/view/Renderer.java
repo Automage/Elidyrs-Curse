@@ -18,7 +18,7 @@ public class Renderer {
     private Canvas canvas;
     private Graphics g;
     private BufferedImage image;
-    private int[] pixels; //Screen pixels
+    private int[] pixels; //All screen pixels
 
     private int fps;
 
@@ -87,6 +87,9 @@ public class Renderer {
     }
 
     private void renderMobs() {
+
+
+
     }
 
     private void renderPlayer() {

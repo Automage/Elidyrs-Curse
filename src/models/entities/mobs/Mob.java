@@ -46,8 +46,8 @@ public abstract class Mob extends Entity {
      * @param yMod Change in y direction
      * @return Whether or not player will collide with an obstacle
      */
+    @Override
     protected boolean collision(int xMod, int yMod) {
-
         /*
          * 0---1
          * |   |

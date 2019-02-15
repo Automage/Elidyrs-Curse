@@ -10,6 +10,14 @@ public class Player extends Mob {
     private double experience;
     private int level; //level 3, 50, etc.
 
+    /**
+     * Constructor
+     *
+     * @param name - player name
+     * @param x in pixels
+     * @param y in pixels
+     */
+
     public Player(String name, int x, int y) {
         //ADD SPRITES HERE
         super(x, y,

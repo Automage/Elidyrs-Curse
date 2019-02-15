@@ -32,6 +32,7 @@ public class GameEngine {
         playerUpdate();
 
         //Mob updates
+        mobUpdate();
 
     }
 
@@ -62,7 +63,11 @@ public class GameEngine {
         if (keyboard.keyIsDown[3] && (player.getX() + player.getSprite().SIZE < map.WIDTH)) {
             player.move(player.getSpeed(), 0);
         }
-        player.update();
+        player.update(); //Updates sprites
+
+    }
+
+    private void mobUpdate() {
 
     }
 

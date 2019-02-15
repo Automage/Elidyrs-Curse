@@ -8,7 +8,10 @@ public abstract class Entity {
     protected int x, y; //TOP-LEFT of sprite
     protected Sprite[] sprites; //Sprites for left, right, walking, running, attacking, etc.
     protected Sprite currentSprite;
-    protected boolean isPassable; //Determines whether other Entities can pass through and whether it can pass other Entities
+
+    // Determines whether other Entities can pass through and whether it can
+    // pass other Entities. Obstacle tiles too.
+    protected boolean isPassable;
     protected Map map;
 
     public Entity(int x, int y, Sprite... sprites) {
@@ -42,6 +45,8 @@ public abstract class Entity {
     }
 
     public abstract void update();
+
+    protected abstract boolean collision(int xMod, int yMod);
 
 
 }
