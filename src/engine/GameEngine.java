@@ -29,6 +29,19 @@ public class GameEngine {
 
     public void update() {
         //Player updates
+        playerUpdate();
+
+        //Mob updates
+
+    }
+
+    /**
+     * Controls player controls, such as movement.
+     *
+     * Movement: Checks map bounds before movement
+     */
+    private void playerUpdate() {
+
         /*
         - Coordinate system starts at top-left - so y-axis is inverted
         - Map boundary logic is the second statement of the if-condition
@@ -50,6 +63,7 @@ public class GameEngine {
             player.move(player.getSpeed(), 0);
         }
         player.update();
+
     }
 
     public void render() {
