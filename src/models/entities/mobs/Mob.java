@@ -8,7 +8,8 @@ public abstract class Mob extends Entity {
 
     //sprites[]:(0,1,2,3) should be reserved for (down, up, right, left)
 
-    protected int dir; //dir = direction: (1,2,3,4) --> (down, up, right, left)
+    //dir = direction: (1,2,3,4) --> (down, up, right, left)
+    protected int dir;
     protected int speed;
 
     public Mob(int x, int y, Sprite... sprites) {
@@ -20,7 +21,8 @@ public abstract class Mob extends Entity {
     }
 
     /**
-     * Moves mob by calculating the distance moved during one update, given the mob's speed and change in x and y.
+     * Moves mob by calculating the distance moved during one update,
+     * given the mob's speed and change in x and y.
      *
      * @param xMod delta x
      * @param yMod delta y
@@ -98,8 +100,9 @@ public abstract class Mob extends Entity {
     /**
      * Updates mob characteristics
      * <p>
-     * Should be called every update. Any unique mob characteristics that require updating should be done here by
-     * overriding this method (and calling super.update() for regular directional sprite updates).
+     * Should be called every update. Any unique mob characteristics that
+     * require updating should be done here by overriding this method
+     * (and calling super.update() for regular directional sprite updates).
      * </p>
      */
     @Override

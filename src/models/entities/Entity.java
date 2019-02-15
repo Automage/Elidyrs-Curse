@@ -6,7 +6,10 @@ import models.Sprite;
 public abstract class Entity {
 
     protected int x, y; //TOP-LEFT of sprite
-    protected Sprite[] sprites; //Sprites for left, right, walking, running, attacking, etc.
+
+    // Sprites for left, right, walking, running, attacking, etc.
+    // sprites[]:(0,1,2,3) should be reserved for (down, up, right, left)
+    protected Sprite[] sprites;
     protected Sprite currentSprite;
 
     // Determines whether other Entities can pass through and whether it can

@@ -16,7 +16,7 @@ public class GameEngine {
     public GameEngine() {
 
         try {
-            map = new Map(0);
+            map = new Map(0); // 0 - Level0
         } catch (LevelNotFoundException e) {
             e.printStackTrace();
         }
