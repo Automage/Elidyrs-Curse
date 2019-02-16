@@ -69,6 +69,10 @@ public class GameEngine {
 
     private void mobUpdate() {
 
+        for (int i = 0; i < map.mobs.length; i++) {
+            map.mobs[i].update();
+        }
+
     }
 
     public void render() {

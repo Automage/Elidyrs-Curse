@@ -29,4 +29,13 @@ public class Player extends Mob {
         this.name = name;
     }
 
+    /**
+     * Player mob is controlled by the user, therefore the AI method
+     * in the Mob class is overriden to do nothing.
+     */
+    @Override
+    protected void AIUpdate() {
+        return;
+    }
+
 }

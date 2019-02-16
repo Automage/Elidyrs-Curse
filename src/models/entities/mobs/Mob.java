@@ -40,6 +40,35 @@ public abstract class Mob extends Entity {
     }
 
     /**
+     * Updates mob characteristics
+     * <p>
+     * Should be called every update. Any unique mob characteristics that
+     * require updating should be done here by overriding this method
+     * (and calling super.update() for regular directional sprite updates).
+     * </p>
+     */
+    @Override
+    public void update() {
+        switch (dir) {
+            case 1: //Down
+                currentSprite = sprites[0];
+                break;
+            case 2: //Up
+                currentSprite = sprites[1];
+                break;
+            case 3: //Right
+                currentSprite = sprites[2];
+                break;
+            case 4: //Left
+                currentSprite = sprites[3];
+                break;
+        }
+
+        AIUpdate();
+
+    }
+
+    /**
      * Detects collision by checking if the front 2 vertices of the sprite
      * in the movement direction will hit an obstacle after adding xMod and
      * yMod respectively.
@@ -98,29 +127,14 @@ public abstract class Mob extends Entity {
     }
 
     /**
-     * Updates mob characteristics
-     * <p>
-     * Should be called every update. Any unique mob characteristics that
-     * require updating should be done here by overriding this method
-     * (and calling super.update() for regular directional sprite updates).
-     * </p>
+     * Function implements the intelligence for the generic Mob.
+     * Method should be overriden for special/enemy-type specific
+     * behaviour.
      */
-    @Override
-    public void update() {
-        switch (dir) {
-            case 1: //Down
-                currentSprite = sprites[0];
-                break;
-            case 2: //Up
-                currentSprite = sprites[1];
-                break;
-            case 3: //Right
-                currentSprite = sprites[2];
-                break;
-            case 4: //Left
-                currentSprite = sprites[3];
-                break;
-        }
+    protected void AIUpdate() {
+
+        move(1,0);
+
     }
 
     /**
