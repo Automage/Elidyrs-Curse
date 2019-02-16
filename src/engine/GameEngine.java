@@ -38,6 +38,7 @@ public class GameEngine {
 
     /**
      * Controls player controls, such as movement.
+     * Keyboard mechanics are implemented here.
      *
      * Movement: Checks map bounds before movement
      */

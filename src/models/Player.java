@@ -31,7 +31,7 @@ public class Player extends Mob {
 
     /**
      * Player mob is controlled by the user, therefore the AI method
-     * in the Mob class is overriden to do nothing.
+     * in the Mob class is overridden to do nothing.
      */
     @Override
     protected void AIUpdate() {

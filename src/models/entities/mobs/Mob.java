@@ -128,7 +128,7 @@ public abstract class Mob extends Entity {
 
     /**
      * Function implements the intelligence for the generic Mob.
-     * Method should be overriden for special/enemy-type specific
+     * Method should be overridden for special/enemy-type specific
      * behaviour.
      */
     protected void AIUpdate() {
