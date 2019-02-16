@@ -72,6 +72,8 @@ public abstract class Mob extends Entity {
      * Detects collision by checking if the front 2 vertices of the sprite
      * in the movement direction will hit an obstacle after adding xMod and
      * yMod respectively.
+     * <p>
+     * Checks collision with obstacle tiles and other mobs.
      *
      * @param xMod Change in x direction
      * @param yMod Change in y direction
@@ -85,6 +87,7 @@ public abstract class Mob extends Entity {
          * 3---2
          */
 
+        //Array of each corner pixel coordinates (which is an array of {x,y})
         int[][] spriteVertices = {
                 {this.x, this.y},
                 {this.x + currentSprite.SIZE, this.y},
@@ -92,7 +95,7 @@ public abstract class Mob extends Entity {
                 {this.x, this.y + currentSprite.SIZE}
         };
 
-        int[][] selectVertices = null;
+        int[][] selectVertices = null; // 2 corners of sprite facing forward
 
         switch (dir) {
             case 1:
@@ -113,11 +116,44 @@ public abstract class Mob extends Entity {
 
         for (int[] vertex : selectVertices) {
 
+            // Obstacle tile collision
             tempTile = map.getTile((vertex[0] + xMod) / Tile.TILE_SIZE,
                                     (vertex[1] + yMod) / Tile.TILE_SIZE);
 
             if (tempTile.isObstacle()) {
                 return true;
+            }
+
+            // Mob collision
+            for (Mob mob : map.mobs) {
+
+                int mobX = mob.getX();
+                int mobY = mob.getY();
+
+                // Checks whether updated sprite will be within
+                // another mob's sprite
+                if (((vertex[0] + xMod) >= mobX) &&
+                    ((vertex[0] + xMod) <= mobX + mob.currentSprite.SIZE) &&
+                    ((vertex[1] + yMod) >= mobY) &&
+                    ((vertex[1] + yMod) <= mobY + mob.currentSprite.SIZE)) {
+
+                    return true;
+
+                }
+
+            }
+
+            //Player Collision
+            int playerX = map.player.getX();
+            int playerY = map.player.getY();
+            int playerSpriteSize = map.player.currentSprite.SIZE;
+            if (((vertex[0] + xMod) >= playerX) &&
+                    ((vertex[0] + xMod) <= playerX + playerSpriteSize) &&
+                    ((vertex[1] + yMod) >= playerY) &&
+                    ((vertex[1] + yMod) <= playerY + playerSpriteSize)) {
+
+                return true;
+
             }
 
         }
@@ -133,7 +169,7 @@ public abstract class Mob extends Entity {
      */
     protected void AIUpdate() {
 
-        move(1,0);
+        move(1, 0);
 
     }
 
