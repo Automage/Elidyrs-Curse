@@ -17,12 +17,24 @@ public abstract class Entity {
     protected boolean isPassable;
     protected Map map;
 
+    /**
+     * Constructor - Initializes x, y coordinates and assigns sprites.
+     *
+     * @param x - x pixel coordinates
+     * @param y - y pixel coordinates
+     * @param sprites - all entity sprites
+     */
     public Entity(int x, int y, Sprite... sprites) {
         this.x = x;
         this.y = y;
         this.sprites = sprites;
     }
 
+    /**
+     * Assigns map reference to Entity
+     *
+     * @param map - map reference
+     */
     public void mapInit(Map map) {
         this.map = map;
     }
@@ -43,12 +55,29 @@ public abstract class Entity {
         this.y = y;
     }
 
+    /**
+     * Returns the current displayed sprite of the entity
+     *
+     * @return current sprite of entity
+     */
     public Sprite getSprite() {
         return currentSprite;
     }
 
+    /**
+     * Updates mob values and applies logic, called every update cycle.
+     *
+     * Should be overridden.
+     */
     public abstract void update();
 
+    /**
+     * Applies collision logic, should be called every update cycle.
+     *
+     * @param xMod - Change in x pixel coordinate
+     * @param yMod - Change in y pixel coordinate
+     * @return Whether or not entity has collided with an obstacle.
+     */
     protected abstract boolean collision(int xMod, int yMod);
 
 
