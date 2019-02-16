@@ -13,6 +13,14 @@ public class GameEngine {
     private Map map;
     private Player player;
 
+    /**
+     * Constructor
+     *
+     * Assigns player, map, keyboard and renderer object references.
+     *
+     * Catches LevelNotFoundException, in the case you're a dumbass
+     * and pass the wrong ID.
+     */
     public GameEngine() {
 
         try {
@@ -27,6 +35,14 @@ public class GameEngine {
 
     }
 
+    /**
+     * Updates everything in the game, every update cycle.
+     *
+     * Including:
+     * - Player updates
+     * - Mob updates
+     * - Entity updates (to be implemented...)
+     */
     public void update() {
         //Player updates
         playerUpdate();
@@ -68,6 +84,9 @@ public class GameEngine {
 
     }
 
+    /**
+     * Calls update() on all mobs in map.
+     */
     private void mobUpdate() {
 
         for (int i = 0; i < map.mobs.length; i++) {
@@ -76,10 +95,19 @@ public class GameEngine {
 
     }
 
+    /**
+     * Calls render method in the Renderer class.
+     */
     public void render() {
         renderer.render();
     }
 
+    /**
+     * Pushes FPS to renderer, so it can be displayed on window title.
+     * Called within main game loop.
+     *
+     * @param fps - Frames per second
+     */
     public void pushFPS(int fps) {
         renderer.setFPS(fps);
     }

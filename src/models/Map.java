@@ -16,6 +16,15 @@ public class Map {
     public Player player;
     public Mob[] mobs;
 
+    /**
+     * Constructor:
+     * - Assigns level to map using levelID
+     * - Loads level (loadLevel())
+     * - Creates a player and passes it the map reference
+     *
+     * @param levelID - ID corresponding to a level
+     * @throws LevelNotFoundException
+     */
     public Map(int levelID) throws LevelNotFoundException {
 
         //Add levelID's here
@@ -49,6 +58,10 @@ public class Map {
 
     }
 
+    /**
+     * Loads tiles and mobs from assigned level.
+     * Passes map reference to all mobs.
+     */
     private void loadLevel() {
         this.tiles = level.tiles;
         this.mobs = level.mobs;

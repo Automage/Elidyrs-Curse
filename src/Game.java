@@ -1,6 +1,6 @@
 import engine.GameEngine;
 
-public class Game implements Runnable{
+public class Game implements Runnable {
 
     private GameEngine engine = new GameEngine();
     private boolean running = true;
