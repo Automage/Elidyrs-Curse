@@ -5,6 +5,8 @@ import models.Map;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -21,6 +23,7 @@ public class Renderer {
     private int[] pixels; //All screen pixels
 
     private int fps;
+    private boolean running;
 
     public Renderer(Map map, KeyAdapter keyboard) {
 
@@ -37,12 +40,27 @@ public class Renderer {
 
         window = new JFrame("Elidyr's Curse");
         window.setResizable(false);
-        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        //Window closes, but does not immediately terminate program
+        window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        /*
+        Rather than terminating the program, closing the window sets the
+        running status to false (which the game loop reads and terminates)
+         */
+        window.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                running = false;
+            }
+        });
+
         window.add(canvas);
         window.pack();
 
         window.setVisible(true);
         canvas.requestFocus();
+
+        running = true;
 
     }
 
@@ -51,14 +69,23 @@ public class Renderer {
     }
 
     /**
+     * Returns running status.
+     *
+     * @return Running status
+     */
+    public boolean getRunning() {
+        return running;
+    }
+
+    /**
      * Function in charge of rendering everything on screen.
      * Screen is a BufferedImage image that is overwritten with sprites.
-     *
-     * 1) Renders the background, which is stored in map.tiles
-     * 2) Renders Player
-     * 3) Renders Mobs
-     * 4) Renders other Entities
-     *
+     * <ol>
+     * <li>Renders the background, which is stored in map.tiles </li>
+     * <li>Renders Player </li>
+     * <li>Renders Mobs</li>
+     * <li>Renders other Entities</li>
+     * </ol>
      * Assumes all sprites are squares.
      */
     public void render() {
