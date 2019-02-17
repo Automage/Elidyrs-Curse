@@ -47,7 +47,11 @@ public class Game implements Runnable {
                 updates = frames = 0;
             }
 
+            running = engine.getRunning();
+
         }
+
+        System.out.println("-- Program terminated --");
 
     }
 }

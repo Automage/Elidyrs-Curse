@@ -13,7 +13,7 @@ public class Player extends Mob {
     /**
      * Constructor
      *
-     * @param name - player name
+     * @param name player name
      * @param x in pixels
      * @param y in pixels
      */

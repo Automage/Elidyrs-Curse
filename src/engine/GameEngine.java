@@ -112,4 +112,13 @@ public class GameEngine {
         renderer.setFPS(fps);
     }
 
+    /**
+     * Requests running status from the renderer class.
+     *
+     * @return Running status
+     */
+    public boolean getRunning() {
+        return renderer.getRunning();
+    }
+
 }
